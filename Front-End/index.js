@@ -51,7 +51,8 @@ class Deck {
     }
 
     insertCards(cardArr){
-        
+        this.tableDeck = cardArr;
+        return this.tableDeck;
     }
 
 }
