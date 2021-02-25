@@ -14,7 +14,25 @@ class Card {
     }
 
     getValue(rank){
+        let value;
+        switch (rank) {
+            case "J":
+                value = 10;
+                break;
+
+            case "Q":
+                value = 10;
+                break;
+
+            case "K":
+                value = 10;
+                break;
         
+            default:
+                value = rank;
+                break;
+        }
+        return value;
     }
 
 }
