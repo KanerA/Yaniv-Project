@@ -10,6 +10,9 @@ class Card {
     }
 
     getName(){
+        if(this.rank === undefined && this.suit === undefined){
+            return 'Joker';
+        }
         return `${this.rank} of ${this.suit}`;
     }
 
@@ -27,7 +30,15 @@ class Card {
             case "K":
                 value = 10;
                 break;
-        
+
+            case undefined:
+                value = 0;
+                break;
+
+            case "A":
+                value = 1;
+                break;
+
             default:
                 value = rank;
                 break;
@@ -39,11 +50,11 @@ class Card {
 
 class Deck {
     constructor(){
-        this.cards = [];
+
     }
     
     shuffle(){
-
+        
     }
 
     removeCard(cardName){
