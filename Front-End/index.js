@@ -84,5 +84,16 @@ class Player {
 }
 
 class Yaniv {
-
+    initDeck(){
+        const tempArr =[];
+        for(let suit of suits){
+            for(let rank of ranks){
+                tempArr.push(new Card(null, rank, suit));
+            }
+        }
+        tempArr.push(new Card(true));
+        tempArr.push(new Card(true));
+        deck.insertCards(tempArr);
+        return deck;
+    }
 }
