@@ -10,7 +10,7 @@ class Card {
     }
 
     getName(){
-        
+        return `${this.rank} of ${this.suit}`;
     }
 
     getValue(rank){
