@@ -69,7 +69,18 @@ class Deck {
     insertCards(cardArr){
         this.mainDeck = cardArr;
         return this.mainDeck;
-    }   
+    }  
+    
+    dealCards(playersList){
+        for(let player of playersList){
+            player.hand.cards =[];
+                for(let i = 0; i < 5; i++){
+                let temp = this.mainDeck.pop();
+                player.hand.cards.push(temp);
+            }
+        }
+        return playersList;
+    }
 }
 
 class PlayerDeck extends Deck {
