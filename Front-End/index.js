@@ -16,9 +16,9 @@ class Card {
         return `${this.rank} of ${this.suit}`;
     }
 
-    getValue(rank){
+    getValue(){
         let value;
-        switch (rank) {
+        switch (this.rank) {
             case "J":
                 value = 10;
                 break;
@@ -40,7 +40,7 @@ class Card {
                 break;
 
             default:
-                value = rank;
+                value = this.rank;
                 break;
         }
         return value;
@@ -60,22 +60,21 @@ class Deck {
             this.mainDeck[i] = this.mainDeck[j];
             this.mainDeck[j] = temp;
         }
-        // return deck; 
     }
 
     removeCard(cardName){
-
+        
     }
 
     insertCards(cardArr){
         this.mainDeck = cardArr;
         return this.mainDeck;
-    }
-
+    }   
 }
 
-class playerDeck extends Deck {
+class PlayerDeck extends Deck {
     constructor(){
+        super();
         
     }
 
@@ -88,18 +87,18 @@ class playerDeck extends Deck {
     }
 }
 
-class tableDeck extends Deck {
+class TableDeck extends Deck {
     constructor(){
         super();
     }
 }
 
-class pileDeck extends Deck {
+class PileDeck extends Deck {
 
 }
 
 class Player {
-
+    
 }
 
 class Yaniv {
