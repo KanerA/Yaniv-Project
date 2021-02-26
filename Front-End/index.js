@@ -50,7 +50,7 @@ class Card {
 
 class Deck {
     constructor(){
-
+        this.mainDeck = [];
     }
     
     shuffle(){
@@ -62,21 +62,17 @@ class Deck {
         }
     }
 
-    removeCard(cardName){
-        
-    }
-
     insertCards(cardArr){
-        this.mainDeck = cardArr;
+        this.mainDeck.unshift(...cardArr);
         return this.mainDeck;
     }  
     
     dealCards(playersList){
-        for(let player of playersList){
-            player.hand.cards =[];
-                for(let i = 0; i < 5; i++){
+        for(let i = 0; i < 5; i++){
+                for(let player of playersList){
                 let temp = this.mainDeck.pop();
                 player.hand.cards.push(temp);
+                player.getScore();
             }
         }
         return playersList;
@@ -88,14 +84,6 @@ class PlayerDeck extends Deck {
         super();
         
     }
-
-    getCard(){
-    
-    }
-
-    throwCard(){
-
-    }
 }
 
 class TableDeck extends Deck {
@@ -105,13 +93,16 @@ class TableDeck extends Deck {
 }
 
 class PileDeck extends Deck {
-
+    constructor(){
+        super();
+    }
 }
 
 class Player {
     constructor(name){
         this.name = name;
         this.hand = new PlayerDeck();
+        this.hand.cards = [];
     }
 
     getScore(){
