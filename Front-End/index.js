@@ -54,7 +54,13 @@ class Deck {
     }
     
     shuffle(){
-        
+        for (let i = this.mainDeck.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * i);
+            let temp = this.mainDeck[i];
+            this.mainDeck[i] = this.mainDeck[j];
+            this.mainDeck[j] = temp;
+        }
+        // return deck; 
     }
 
     removeCard(cardName){
@@ -62,8 +68,8 @@ class Deck {
     }
 
     insertCards(cardArr){
-        this.tableDeck = cardArr;
-        return this.tableDeck;
+        this.mainDeck = cardArr;
+        return this.mainDeck;
     }
 
 }
@@ -83,7 +89,9 @@ class playerDeck extends Deck {
 }
 
 class tableDeck extends Deck {
-
+    constructor(){
+        super();
+    }
 }
 
 class pileDeck extends Deck {
