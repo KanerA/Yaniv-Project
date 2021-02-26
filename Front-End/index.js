@@ -77,6 +77,16 @@ class Deck {
         }
         return playersList;
     }
+
+    removeCard(card){
+        let cardsDeck = this.cards;
+        for(let i = 0; i < cardsDeck.length; i++){
+            if(cardsDeck[i].rank === card.rank && cardsDeck[i].suit === card.suit){
+                cardsDeck.splice(i, 1);
+                return card;
+            }
+        }   
+    }
 }
 
 class PlayerDeck extends Deck {
