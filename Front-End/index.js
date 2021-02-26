@@ -109,7 +109,10 @@ class PileDeck extends Deck {
 }
 
 class Player {
-    
+    constructor(name){
+        this.name = name;
+        this.hand = new PlayerDeck();
+    }
 }
 
 class Yaniv {
