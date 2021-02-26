@@ -113,6 +113,14 @@ class Player {
         this.name = name;
         this.hand = new PlayerDeck();
     }
+
+    getScore(){
+        let score = 0;
+        for(let card of (this.hand.cards)){
+            score += card.getValue();
+        }
+        this.score = score;      
+    }
 }
 
 class Yaniv {
