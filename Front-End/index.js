@@ -87,6 +87,10 @@ class Deck {
             }
         }   
     }
+    
+    getCard(card){
+        this.cards.push(card);
+    }
 }
 
 class PlayerDeck extends Deck {
