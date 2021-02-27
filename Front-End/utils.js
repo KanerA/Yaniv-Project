@@ -87,10 +87,6 @@ class Deck {
             }
         }   
     }
-    
-    getCard(card){
-        this.cards.push(card);
-    }
 }
 
 class PlayerDeck extends Deck {
@@ -102,6 +98,10 @@ class PlayerDeck extends Deck {
 class TableDeck extends Deck {
     constructor(){
         super();
+    }
+
+    checkIfEmpty(){
+        
     }
 }
 
