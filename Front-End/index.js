@@ -50,27 +50,27 @@ class Card {
 
 class Deck {
     constructor(){
-        this.mainDeck = [];
+        this.cards = [];
     }
     
     shuffle(){
-        for (let i = this.mainDeck.length - 1; i > 0; i--) {
+        for (let i = this.cards.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * i);
-            let temp = this.mainDeck[i];
-            this.mainDeck[i] = this.mainDeck[j];
-            this.mainDeck[j] = temp;
+            let temp = this.cards[i];
+            this.cards[i] = this.cards[j];
+            this.cards[j] = temp;
         }
     }
 
     insertCards(cardArr){
-        this.mainDeck.unshift(...cardArr);
-        return this.mainDeck;
+        this.cards.unshift(...cardArr);
+        return this.cards;
     }  
     
     dealCards(playersList){
         for(let i = 0; i < 5; i++){
                 for(let player of playersList){
-                let temp = this.mainDeck.pop();
+                let temp = this.cards.pop();
                 player.hand.cards.push(temp);
                 player.getScore();
             }
@@ -92,7 +92,6 @@ class Deck {
 class PlayerDeck extends Deck {
     constructor(){
         super();
-        
     }
 }
 
