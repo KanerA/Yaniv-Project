@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yaniv-Assaf Start</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css/style.css">
+        <title>Yaniv-Assaf Start</title>
 </head>
 <body>
     <div class="numberOfPlayers">
         <h1 class="title numberPLayers">Choose Mode</h1>
-        <button class="btn twoPlayers">2 Players</button>
-        <button class="btn fourPlayers">4 Players</button>
+        <button class="btn twoPlayers" id="twoPlayers">2 Players</button>
+        <button class="btn fourPlayers" id="fourPlayers">4 Players</button>
     </div>    
-
-    <div class="setUp 2players">
-        <form action="html/game.html">
-            <input type="text" class="player" id="player1" placeholder="Player Name">
-            <input type="text" class="player" id="player2" placeholder="Player Name">
-            <button type="submit" class="btn start">Start!</button>
+    
+    <div class="setUp twoPlayersNames" id="twoPlayersNames">
+        <form action="./html/game.html" method="GET">
+            <div>
+                <label for="player1Name">Player 1</label>
+                <input type="text" name="name1" class="player" id="player1Name" placeholder="Player Name">
+            </div>
+            <div>
+                <label for="player2Name">Player 2</label>
+                <input type="text" name ="name2" class="player" id="player2Name" placeholder="Player Name">
+            </div>
+            <button type="reset">Reset</button>
+            <button type="submit" class="btn startBtn">Start!</button>
         </form>
     </div>
     
-    <div class="setUp 4players">
-        <form action="html/game.html">
-            <input type="text" class="player" id="player1" placeholder="Player Name">
-            <input type="text" class="player" id="player2" placeholder="Player Name">
-            <input type="text" class="player" id="player3" placeholder="Player Name">
-            <input type="text" class="player" id="player4" placeholder="Player Name">
+    <div class="setUp fourPlayersNames" id="fourPlayersNames">
+        <form action="./html/game.html" method="GET">
+            <div>
+                <label for="player1">Player 1</label>
+                <input type="text" name="name1" class="player" id="player1" placeholder="Player Name">
+            </div>
+            
+            <div>
+                <label for="player2">Player 2</label>
+                <input type="text" name="name2" class="player" id="player2" placeholder="Player Name">
+            </div>
+            
+            <div>
+                <label for="player3">Player 3</label>
+                <input type="text" name="name3" class="player" id="player3" placeholder="Player Name">
+            </div>
+            
+            <div>
+                <label for="player4">Player 4</label>
+                <input type="text" name="name4" class="player" id="player4" placeholder="Player Name">
+            </div>
+            <button type="reset">Reset</button>
             <button type="submit" class="btn start">Start!</button>
         </form>
     </div>
+    <script src="./playersSetup.js"></script>
 </body>
 </html>
