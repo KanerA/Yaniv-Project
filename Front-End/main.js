@@ -22,6 +22,8 @@ function startGame(){
     newRound.pileDeck = pileDeck;
     newRound.tableDeck = deck;
     newRound.players = playerList;
+    const pile = createCardImg('pileDeck', pileDeck.cards[0]);
+    table.append(pile);
     playerList.forEach((_, index) => {
         const playerHand = document.createElement('div');
         for(let card of playerList[index].hand.cards){
