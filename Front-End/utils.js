@@ -136,7 +136,6 @@ class Yaniv {
         }
         tempArr.push(new Card(true));
         tempArr.push(new Card(true));
-        deck.insertCards(tempArr);
-        return deck;
+        return tempArr;
     }
 }
