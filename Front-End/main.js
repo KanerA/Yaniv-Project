@@ -25,44 +25,52 @@ function startGame(){
     playerList.forEach((_, index) => {
         const playerHand = document.createElement('div');
         for(let card of playerList[index].hand.cards){
-            const playerCard = document.createElement('div');
-            playerCard.classList.add('playerCard')
-            let cardImg = document.createElement('img');
-            cardImg.addEventListener('click', pickCard);
-            switch(card.suit){
-                case "spades":
-                    cardImg.setAttribute('src', `../cards/${card.rank}S.svg`);
-                    playerCard.append(cardImg);
-                    break;
-                    
-                case "hearts":
-                    cardImg.setAttribute('src', `../cards/${card.rank}H.svg`);
-                    playerCard.append(cardImg);
-                    break;
-                    
-                case "diamonds":            
-                    cardImg.setAttribute('src', `../cards/${card.rank}D.svg`);
-                    playerCard.append(cardImg);
-                    break;
-                        
-                case "clubs":
-                    cardImg.setAttribute('src', `../cards/${card.rank}C.svg`);
-                    playerCard.append(cardImg);
-                    break;
-
-                case undefined:
-                    cardImg.setAttribute('src', `../cards/Black_joker.svg`);
-                    playerCard.append(cardImg);
-                    break;
-
-            }
-            playerHand.append(playerCard)
+            playerHand.append(createCardImg('playerCard', card));
         }
         const line = document.createElement('hr');
         table.append(playerHand);
         table.append(line);
-
     })
+}
+
+function pickCard(){ // testing the event listener
+    this.parentElement.remove();
+}
+
+
+function createCardImg(className, card){ // creates a div with the given class name and displays the wanted card.
+    const div = document.createElement('div');
+    div.classList.add(`${className}`);
+    let cardImg = document.createElement('img');
+    cardImg.addEventListener('click', pickCard);
+    switch(card.suit){
+        case "spades":
+            cardImg.setAttribute('src', `../cards/${card.rank}S.svg`);
+            div.append(cardImg);
+            break;
+            
+        case "hearts":
+            cardImg.setAttribute('src', `../cards/${card.rank}H.svg`);
+            div.append(cardImg);
+            break;
+            
+        case "diamonds":            
+            cardImg.setAttribute('src', `../cards/${card.rank}D.svg`);
+            div.append(cardImg);
+            break;
+                
+        case "clubs":
+            cardImg.setAttribute('src', `../cards/${card.rank}C.svg`);
+            div.append(cardImg);
+            break;
+
+        case undefined:
+            cardImg.setAttribute('src', `../cards/Black_joker.svg`);
+            div.append(cardImg);
+            break;
+
+    }
+    return div;
 }
 
 
