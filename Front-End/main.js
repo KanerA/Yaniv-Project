@@ -28,6 +28,7 @@ function startGame(){
             const playerCard = document.createElement('div');
             playerCard.classList.add('playerCard')
             let cardImg = document.createElement('img');
+            cardImg.addEventListener('click', pickCard);
             switch(card.suit){
                 case "spades":
                     cardImg.setAttribute('src', `../cards/${card.rank}S.svg`);
