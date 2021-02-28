@@ -47,6 +47,11 @@ function createCardImg(className, card){ // creates a div with the given class n
     div.classList.add(`${className}`);
     let cardImg = document.createElement('img');
     cardImg.addEventListener('click', pickCard);
+    if(card === undefined){
+        cardImg.setAttribute('src', `../cards/Assaf's-card-back.svg`);
+        div.append(cardImg);
+        return div;
+    }
     switch(card.suit){
         case "spades":
             cardImg.setAttribute('src', `../cards/${card.rank}S.svg`);
