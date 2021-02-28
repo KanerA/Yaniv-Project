@@ -80,12 +80,15 @@ class Deck {
 
     removeCard(card){
         let cardsDeck = this.cards;
-        for(let i = 0; i < cardsDeck.length; i++){
-            if(cardsDeck[i].rank === card.rank && cardsDeck[i].suit === card.suit){
-                cardsDeck.splice(i, 1);
-                return card;
-            }
-        }   
+        if(card){
+            for(let i = 0; i < cardsDeck.length; i++){
+                if(cardsDeck[i].rank === card.rank && cardsDeck[i].suit === card.suit){
+                    cardsDeck.splice(i, 1);
+                    return card;
+                }
+            }   
+        }
+        return cardsDeck.shift();
     }
 }
 
@@ -98,10 +101,6 @@ class PlayerDeck extends Deck {
 class TableDeck extends Deck {
     constructor(){
         super();
-    }
-
-    checkIfEmpty(){
-        
     }
 }
 
