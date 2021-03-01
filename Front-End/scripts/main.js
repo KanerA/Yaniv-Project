@@ -117,13 +117,12 @@ function createPileTopCard(card){
 function pickCard(event){
     let playerName = event.target.parentElement.parentElement.classList[0];
     for(let player of round.players){
-        if(player.name === playerName && player.turn === true){ // check if it's the player's turn
+        if(!player.name === playerName || !player.turn === false) return ; // check if it's the player's turn
         let card = findCardInDeck(this, player.hand.cards);
-        if(card){
-            player.hand.cardsChosen.push(card);
-            return;
-            }
-        }
+        if(!card) return;                                    // if the card doesn't belong to the player' it exits the function
+        if(player.hand.cardsChosen.includes(card)) return;   // check if the card already chosen
+        player.hand.cardsChosen.push(card);
+        return;
     }
     return;
 }
