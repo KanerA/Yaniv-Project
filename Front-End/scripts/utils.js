@@ -116,6 +116,8 @@ class Player {
         this.name = name;
         this.hand = new PlayerDeck();
         this.hand.cards = [];
+        this.hand.cardsChosen = [];
+        this.turn = false;
     }
 
     getScore(){
@@ -132,7 +134,6 @@ class Yaniv {
         this.tableDeck = [];
         this.pileDeck = [];
         this.players = [];
-        this.cardsChosen = [];
     }
 
     initDeck(){

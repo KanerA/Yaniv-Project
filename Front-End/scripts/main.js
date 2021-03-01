@@ -114,4 +114,18 @@ function createPileTopCard(card){
     mainDecks.append(pile);
 }
 
+function pickCard(event){
+    let playerName = event.target.parentElement.parentElement.classList[0];
+    for(let player of round.players){
+        if(player.name === playerName && player.turn === true){ // check if it's the player's turn
+        let card = findCardInDeck(this, player.hand.cards);
+        if(card){
+            player.hand.cardsChosen.push(card);
+            return;
+            }
+        }
+    }
+    return;
+}
+
 document.addEventListener('DOMContentLoaded', startGame);
