@@ -3,10 +3,11 @@ const suits = ["spades", "hearts", "diamonds", "clubs"];
 
 
 class Card {
-    constructor( isJoker=false, rank, suit){
+    constructor( isJoker=false, id, rank, suit){
         this.isJoker = isJoker;
         this.rank = rank;
         this.suit = suit;
+        this.id = id;
     }
 
     getName(){
@@ -67,8 +68,8 @@ class Deck {
         return this.cards;
     }  
     
-    dealCards(playersList){
-        for(let i = 0; i < 5; i++){
+    dealCards(playersList, amount){
+        for(let i = 0; i < amount; i++){
                 for(let player of playersList){
                 let temp = this.cards.pop();
                 player.hand.cards.push(temp);
@@ -129,13 +130,15 @@ class Player {
 class Yaniv {
     initDeck(){
         const tempArr =[];
+        let index = 1;
         for(let suit of suits){
             for(let rank of ranks){
-                tempArr.push(new Card(null, rank, suit));
+                tempArr.push(new Card(null, index, rank, suit));
+                index++;
             }
         }
-        tempArr.push(new Card(true));
-        tempArr.push(new Card(true));
+        tempArr.push(new Card(true, index));
+        tempArr.push(new Card(true, index+1));
         return tempArr;
     }
 }
