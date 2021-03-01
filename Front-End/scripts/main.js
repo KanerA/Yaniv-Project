@@ -39,15 +39,24 @@ function startGame(){
     })
 }
 
-function pickCard(){ // testing the event listener
-    this.parentElement.remove();
+function throwCards(){
+    newRound.players.forEach((value) => {
+        for(let card of value.hand.cards){
+            if(this.id === `${card.id}`){
+                value.hand.removeCard(card);
+                this.parentElement.remove();
+                value.getScore();
+                break;
+            }
+        }
+    })
 }
 
 function createCardImg(className, card){ // creates a div with the given class name and displays the wanted card.
     const div = document.createElement('div');
     div.classList.add(`${className}`);
     let cardImg = document.createElement('img');
-    cardImg.addEventListener('click', pickCard);
+    cardImg.addEventListener('click', throwCards);
     if(card === undefined){
         cardImg.setAttribute('src', `../cards/Assaf's-card-back.svg`);
         div.append(cardImg);
