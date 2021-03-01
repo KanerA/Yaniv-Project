@@ -48,6 +48,7 @@ function throwCards(){
                 value.hand.removeCard(card);
                 this.parentElement.remove();
                 value.getScore();
+                createPileTopCard(card);
                 break;
             }
         }
@@ -99,5 +100,11 @@ function createCardImg(className, card){ // creates a div with the given class n
     return div;
 }
 
+function createPileTopCard(card){
+    newRound.pileDeck.insertCards([card]);
+    mainDecks.children[1].remove();
+    pile = createCardImg('pileDeck', newRound.pileDeck.cards[0]);
+    mainDecks.append(pile);
+}
 
 document.addEventListener('DOMContentLoaded', startGame);
