@@ -30,10 +30,11 @@ function startGame(){
     mainDecks.append(tableDeck);
     pile = createCardImg('pileDeck', round.pileDeck.cards[0]);
     mainDecks.append(pile);
-    playerList.forEach((_, index) => {
+    playerList.forEach((player, index) => {
         const playerHand = document.createElement('div');
+        playerHand.classList.add(`${player.name}`);
         for(let card of playerList[index].hand.cards){
-            playerHand.append(createCardImg('playerCard', card, throwCards));
+            playerHand.append(createCardImg('playerCard', card, pickCard));
         }
         const line = document.createElement('hr');
         table.append(playerHand);
@@ -43,8 +44,7 @@ function startGame(){
 
 function throwCards(){
     round.players.forEach((value) => {
-        let card = findCardInDeck(this, value.hand.cards); 
-        console.log(card);
+        let card = findCardInDeck(this, value.hand.cards);
         if(card){
             value.hand.removeCard(card);
             this.parentElement.remove();
