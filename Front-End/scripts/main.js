@@ -59,12 +59,12 @@ function createCardImg(className, card){ // creates a div with the given class n
     const div = document.createElement('div');
     div.classList.add(`${className}`);
     let cardImg = document.createElement('img');
-    cardImg.addEventListener('click', throwCards);
     if(card === undefined){
         cardImg.setAttribute('src', `../cards/Assaf's-card-back.svg`);
         div.append(cardImg);
         return div;
     }
+    cardImg.addEventListener('click', throwCards);
     switch(card.suit){
         case "spades":
             cardImg.setAttribute('src', `../cards/${card.rank}S.svg`);
@@ -101,8 +101,8 @@ function createCardImg(className, card){ // creates a div with the given class n
 }
 
 function createPileTopCard(card){
-    newRound.pileDeck.insertCards([card]);
     mainDecks.children[1].remove();
+    newRound.pileDeck.insertCards([card]);
     pile = createCardImg('pileDeck', newRound.pileDeck.cards[0]);
     mainDecks.append(pile);
 }
