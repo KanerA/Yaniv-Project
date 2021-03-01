@@ -42,17 +42,24 @@ function startGame(){
 }
 
 function throwCards(){
-    newRound.players.forEach((value) => {
-        for(let card of value.hand.cards){
-            if(this.id === `${card.id}`){
-                value.hand.removeCard(card);
-                this.parentElement.remove();
-                value.getScore();
-                createPileTopCard(card);
-                break;
-            }
+    round.players.forEach((value) => {
+        let card = findCardInDeck(this, value.hand.cards); 
+        console.log(card);
+        if(card){
+            value.hand.removeCard(card);
+            this.parentElement.remove();
+            value.getScore();
+            createPileTopCard(card);
         }
     })
+}
+
+function findCardInDeck(cardChosen, deck){
+    for(let card of deck){
+        if(cardChosen.id === `${card.id}`){
+        return card;
+        }
+    }
 }
 
 function createCardImg(className, card, eventListenerFunction){ // creates a div with the given class name and displays the wanted card.
