@@ -33,7 +33,7 @@ function startGame(){
     playerList.forEach((_, index) => {
         const playerHand = document.createElement('div');
         for(let card of playerList[index].hand.cards){
-            playerHand.append(createCardImg('playerCard', card));
+            playerHand.append(createCardImg('playerCard', card, throwCards));
         }
         const line = document.createElement('hr');
         table.append(playerHand);
@@ -55,16 +55,16 @@ function throwCards(){
     })
 }
 
-function createCardImg(className, card){ // creates a div with the given class name and displays the wanted card.
+function createCardImg(className, card, eventListenerFunction){ // creates a div with the given class name and displays the wanted card.
     const div = document.createElement('div');
     div.classList.add(`${className}`);
     let cardImg = document.createElement('img');
+    cardImg.addEventListener('click', eventListenerFunction);
     if(card === undefined){
         cardImg.setAttribute('src', `../cards/Assaf's-card-back.svg`);
         div.append(cardImg);
         return div;
     }
-    cardImg.addEventListener('click', throwCards);
     switch(card.suit){
         case "spades":
             cardImg.setAttribute('src', `../cards/${card.rank}S.svg`);
