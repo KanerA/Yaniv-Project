@@ -3,8 +3,10 @@ const player1Input = document.getElementById("player1Name");
 const player2Input = document.getElementById("player2Name");
 const startButton = document.querySelector('.startBtn');
 const table = document.getElementById('table');
+const mainDecks = document.getElementById('mainDecks');
 
 const newRound = new Yaniv();
+let pile;
 
 function startGame(){
     const playerList = [];
@@ -23,11 +25,11 @@ function startGame(){
     newRound.pileDeck = pileDeck;
     newRound.tableDeck = deck;
     newRound.players = playerList;
-
-    const pile = createCardImg('pileDeck', newRound.pileDeck.cards[0]);
-    table.append(pile);
+    
     const tableDeck = createCardImg('tableDeck');
-    table.append(tableDeck);
+    mainDecks.append(tableDeck);
+    pile = createCardImg('pileDeck', newRound.pileDeck.cards[0]);
+    mainDecks.append(pile);
     playerList.forEach((_, index) => {
         const playerHand = document.createElement('div');
         for(let card of playerList[index].hand.cards){
