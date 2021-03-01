@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.twoPlayersNames {
+  display: none;
+}
+
+.twoPlayersNames.show {
+  display: block;
+}
+
+.fourPlayersNames {
+  display: none;
+}
+
+.fourPlayersNames.show {
+  display: block;
+}
+
+.playerCard {
+  display: inline;
+}
+
+.playerCard img {
+  height: 100px;
+  width: auto;
+  margin: 5px;
+}
+
+.tableDeck {
+  display: inline;
+}
+
+.tableDeck img {
+  margin-left: 45%;
+  height: 120px;
+}
+
+.pileDeck {
+  display: inline;
+}
+
+.pileDeck img {
+  height: 120px;
+}
+
+.tableDeck {
+  display: inline;
+}
+
+.tableDeck img {
+  height: 120px;
+}
+/*# sourceMappingURL=style.css.map */

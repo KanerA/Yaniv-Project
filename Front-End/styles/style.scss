@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.twoPlayersNames{
+    display: none;
+    &.show{
+        display:block;
+    }
+}
+.fourPlayersNames{
+    display: none;
+    &.show{
+        display: block;
+    }
+}
+.playerCard{
+    display: inline;
+    & img{
+        height: 100px;
+        width: auto;
+        margin: 5px;
+    }
+}
+
+#table{
+    // display: flex;
+}
+.tableDeck{
+    display:inline;
+    & img{
+        margin-left: 45%;
+        height: 120px;
+    }
+
+}
+.pileDeck{
+    display:inline;
+    & img{
+        height: 120px;
+    }
+}
+.tableDeck {
+    display:inline;
+    & img {
+        height: 120px;
+    }
+}
