@@ -128,6 +128,13 @@ class Player {
 }
 
 class Yaniv {
+    constructor(){
+        this.tableDeck = [];
+        this.pileDeck = [];
+        this.players = [];
+        this.cardsChosen = [];
+    }
+
     initDeck(){
         const tempArr =[];
         let index = 1;
