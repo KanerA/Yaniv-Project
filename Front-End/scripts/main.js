@@ -122,8 +122,21 @@ function pickCard(event){
         let card = findCardInDeck(this, player.hand.cards);
         if(!card) continue;                                    // if the card doesn't belong to the player' it exits the function
         if(player.hand.cardsChosen.includes(card)) continue;   // check if the card already chosen
+        if(!checkIfCardMatch(card, player.hand.cardsChosen)) continue;
         player.hand.cardsChosen.push(card);
         return;
+    }
+}
+
+function checkIfCardMatch(card, deck){
+    if(deck.length === 0) return true;
+    if(card.rank === undefined) return true;
+    console.log(card);
+    console.log(deck);
+    for(let temp of deck){  
+        if(card.rank === temp.rank || card.suit === temp.suit && (-1 <= (card.getValue() - temp.getValue()) <= 1)){
+            return true;
+        } else return false;
     }
 }
 
