@@ -12,6 +12,7 @@ function startGame(){
     const playerList = [];
     new URLSearchParams(window.location.search).forEach((value, name) => {
         playerList.push(new Player(value));
+        console.log(playerList);
     })
 
     let deck = new TableDeck();
@@ -117,14 +118,13 @@ function createPileTopCard(card){
 function pickCard(event){
     let playerName = event.target.parentElement.parentElement.classList[0];
     for(let player of round.players){
-        if(!player.name === playerName || !player.turn === false) return ; // check if it's the player's turn
+        if(!player.name === playerName || !player.turn === false) continue ; // check if it's the player's turn
         let card = findCardInDeck(this, player.hand.cards);
-        if(!card) return;                                    // if the card doesn't belong to the player' it exits the function
-        if(player.hand.cardsChosen.includes(card)) return;   // check if the card already chosen
+        if(!card) continue;                                    // if the card doesn't belong to the player' it exits the function
+        if(player.hand.cardsChosen.includes(card)) continue;   // check if the card already chosen
         player.hand.cardsChosen.push(card);
         return;
     }
-    return;
 }
 
 document.addEventListener('DOMContentLoaded', startGame);
