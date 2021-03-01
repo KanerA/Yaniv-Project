@@ -5,7 +5,7 @@ const startButton = document.querySelector('.startBtn');
 const table = document.getElementById('table');
 const mainDecks = document.getElementById('mainDecks');
 
-const newRound = new Yaniv();
+const round = new Yaniv();
 let pile;
 
 function startGame(){
@@ -15,20 +15,20 @@ function startGame(){
     })
 
     let deck = new TableDeck();
-    let tempCards = newRound.initDeck();
+    let tempCards = round.initDeck();
     deck.insertCards(tempCards);
     deck.shuffle();
     deck.dealCards(playerList, 5);
     const pileDeck = new PileDeck();
     let firstCard = deck.removeCard();
     pileDeck.insertCards([firstCard]);
-    newRound.pileDeck = pileDeck;
-    newRound.tableDeck = deck;
-    newRound.players = playerList;
+    round.pileDeck = pileDeck;
+    round.tableDeck = deck;
+    round.players = playerList;
     
     const tableDeck = createCardImg('tableDeck');
     mainDecks.append(tableDeck);
-    pile = createCardImg('pileDeck', newRound.pileDeck.cards[0]);
+    pile = createCardImg('pileDeck', round.pileDeck.cards[0]);
     mainDecks.append(pile);
     playerList.forEach((_, index) => {
         const playerHand = document.createElement('div');
@@ -102,8 +102,8 @@ function createCardImg(className, card, eventListenerFunction){ // creates a div
 
 function createPileTopCard(card){
     mainDecks.children[1].remove();
-    newRound.pileDeck.insertCards([card]);
-    pile = createCardImg('pileDeck', newRound.pileDeck.cards[0]);
+    round.pileDeck.insertCards([card]);
+    pile = createCardImg('pileDeck', round.pileDeck.cards[0]);
     mainDecks.append(pile);
 }
 
